@@ -51,3 +51,9 @@ Também foi verificada a quantidade de registros que possuem pelo menos um valor
 <img width="330" height="132" alt="image" src="https://github.com/user-attachments/assets/a4ce6c9e-014c-4308-9257-4557c8061858" />
 
 Esses resultados indicam que o tratamento dos valores ausentes deve ser feito cuidadosamente para evitar a perda desnecessária de informações relevantes para o problema de classificação.
+
+## 5. Valores duplicados
+
+Foi identificado **0 registros duplicados** entre os 2.938 registros da base.
+
+<img width="456" height="42" alt="image" src="https://github.com/user-attachments/assets/96d10905-bfb3-496a-b117-8fb498145ea8" />
