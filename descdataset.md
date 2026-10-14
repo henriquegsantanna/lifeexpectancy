@@ -38,3 +38,16 @@ Para padronizar a análise somente no intervalo dos 16 anos, foi decidido manter
 
 **Nota:** os resultados da distribuição das classes serão recalculados após a filtragem.
 
+## 4. Valores faltantes
+
+**Nota:** a análise foi realizada sobre os 2.938 registros e os 22 atributos da base, antes da remoção de países ou de qualquer tratamento dos dados.
+
+Os valores faltantes estão concentrados principalmente nos atributos `Population` (652; 22,19%), `Hepatitis B` (553; 18,82%) e `GDP` (448; 15,25%). Por outro lado, atributos como por exemplo `Status`, `Country` e `Year` não apresentam valores faltantes.
+
+<img width="316" height="447" alt="Captura de tela 2026-10-14 151409" src="https://github.com/user-attachments/assets/83e30f65-0160-4e4f-8c6f-f8d697524a7c" />
+
+Também foi verificada a quantidade de registros que possuem pelo menos um valor faltante.
+
+<img width="330" height="132" alt="image" src="https://github.com/user-attachments/assets/a4ce6c9e-014c-4308-9257-4557c8061858" />
+
+Esses resultados indicam que o tratamento dos valores ausentes deve ser feito cuidadosamente para evitar a perda desnecessária de informações relevantes para o problema de classificação.
