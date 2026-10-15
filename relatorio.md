@@ -189,3 +189,17 @@ Esses resultados demonstram que, apesar do bom desempenho geral, o modelo ainda 
 Com base nos resultados obtidos, a Árvore de Decisão foi selecionada como o melhor modelo entre os dois algoritmos testados.
 
 A escolha foi baseada na maior acurácia e no melhor desempenho de F1-score e recall para a classe `Developed`, que representa a categoria minoritária do dataset.
+
+## 6. Conclusão
+
+O projeto teve como objetivo investigar se é possível prever se um país é classificado como desenvolvido ou em desenvolvimento utilizando indicadores de saúde e educação, sem utilizar a variável `GDP` como preditor, a partir do dataset *Life Expectancy (WHO)* e considerando sua relação com a ODS 3 — Saúde e Bem-Estar.
+
+**Com base nos experimentos realizados, os resultados indicam que sim, é possível realizar essa classificação com bom desempenho utilizando os indicadores selecionados.** A Árvore de Decisão apresentou o melhor resultado entre os modelos testados, alcançando acurácia de 92,23% e F1-score de 0,81 para a classe `Developed`. Já a Floresta Aleatória obteve acurácia de 88,85% e F1-score de 0,70 para essa mesma classe.
+
+A análise da importância das variáveis indicou que `Life expectancy` e `Alcohol` foram os indicadores mais relevantes para as decisões da Árvore de Decisão. Esses resultados demonstram que os indicadores selecionados contêm informações úteis para diferenciar as duas categorias de países, mesmo sem utilizar `GDP`.
+
+Entretanto, é importante destacar que o desempenho não foi igual para as duas classes. A Árvore de Decisão apresentou revocação de 0,77 para a classe `Developed` e de 0,97 para a classe `Developing`, indicando maior dificuldade para identificar corretamente países desenvolvidos. Além disso, a importância das variáveis representa sua contribuição para as previsões do modelo, não comprovando relações de causalidade.
+
+Como limitações, destacam-se o desequilíbrio entre as classes, a presença de valores ausentes e a dependência dos resultados em relação aos dados e aos algoritmos utilizados.
+
+Conclui-se, portanto, que **os indicadores de saúde selecionados permitem prever o status de desenvolvimento dos países com resultados promissores, sem utilizar `GDP` como preditor, dentro das condições deste experimento**
