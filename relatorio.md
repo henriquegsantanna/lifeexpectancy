@@ -156,3 +156,36 @@ Outros indicadores, como `thinness 1-19 years` (6,78%), `Total expenditure` (3,4
 Por outro lado, variáveis como `infant deaths` (0,17%) e `HIV/AIDS` (0,18%) apresentaram as menores importâncias no modelo.
 
 Esses resultados indicam que a Árvore de Decisão utilizou principalmente a expectativa de vida e o indicador relacionado ao consumo de álcool para realizar suas classificações. Entretanto, a importância das variáveis representa sua contribuição para as decisões do modelo, não demonstrando necessariamente uma relação causal com o status de desenvolvimento dos países.
+
+## 5. Avaliação (Evaluation)
+
+### 5.1 Comparação dos Modelos
+
+Foram avaliados dois algoritmos de classificação: Árvore de Decisão (*Decision Tree*) e Floresta Aleatória (*Random Forest*). Ambos foram treinados e avaliados utilizando os mesmos conjuntos de treino e teste, e os resultados obtidos foram:
+
+**Decision Tree:**
+![alt text](<Captura de tela 2026-10-15 134924.png>)
+
+**Random Forest:**
+![alt text](<Captura de tela 2026-10-15 135002.png>)
+
+A Árvore de Decisão apresentou os melhores resultados nas métricas comparadas, alcançando acurácia de 92,23% e F1-score de 0,81 para a classe `Developed`. A Floresta Aleatória obteve acurácia de 88,85% e F1-score de 0,70 para essa mesma classe.
+
+Embora ambos os modelos tenham apresentado bom desempenho na identificação de países em desenvolvimento, a Árvore de Decisão demonstrou maior capacidade de identificar corretamente os países classificados como desenvolvidos.
+
+### 5.2 Análise dos Erros de Classificação
+
+A matriz de confusão da Árvore de Decisão apresentou os seguintes resultados:
+
+- 98 países desenvolvidos foram classificados corretamente.
+- 30 países desenvolvidos foram classificados incorretamente como em desenvolvimento.
+- 448 países em desenvolvimento foram classificados corretamente.
+- 16 países em desenvolvimento foram classificados incorretamente como desenvolvidos.
+
+Esses resultados demonstram que, apesar do bom desempenho geral, o modelo ainda apresenta dificuldades na identificação de parte dos países desenvolvidos.
+
+### 5.3 Seleção do Modelo
+
+Com base nos resultados obtidos, a Árvore de Decisão foi selecionada como o melhor modelo entre os dois algoritmos testados.
+
+A escolha foi baseada na maior acurácia e no melhor desempenho de F1-score e recall para a classe `Developed`, que representa a categoria minoritária do dataset.
