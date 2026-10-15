@@ -62,3 +62,45 @@ Também foram analisados os valores ausentes e a existência de registros duplic
 Entre as colunas com maior quantidade de valores ausentes, destacam-se `Population`, `Hepatitis B`, `GDP` e `Total expenditure`.
 
 A descrição detalhada dos atributos, da distribuição das classes e dos valores ausentes encontra-se no arquivo `descdataset.md`.
+
+## 3. Preparação dos Dados (Data Preparation)
+
+### 3.1 Seleção das Variáveis
+
+Para a modelagem, foram selecionados 14 indicadores relacionados à saúde e ao bem-estar:
+
+- `Life expectancy`
+- `Adult Mortality`
+- `infant deaths`
+- `Alcohol`
+- `Hepatitis B`
+- `Measles`
+- `BMI`
+- `under-five deaths`
+- `Polio`
+- `Total expenditure`
+- `Diphtheria`
+- `HIV/AIDS`
+- `thinness 1-19 years`
+- `thinness 5-9 years`
+
+A variável `Status` foi definida como alvo da previsão. As colunas `Country`, `Year`, `GDP`, `Population`, `Schooling` e outras variáveis não selecionadas foram excluídas do conjunto de preditores.
+
+### 3.2 Tratamento dos Valores Ausentes
+
+Os valores ausentes das variáveis preditoras foram tratados por meio da imputação pela mediana de cada coluna.
+
+Inicialmente, os dados foram divididos em conjuntos de treino e teste. Em seguida, as medianas foram calculadas exclusivamente a partir do conjunto de treino e aplicadas também ao conjunto de teste.
+
+Esse procedimento foi adotado para evitar vazamento de informação (*data leakage*), garantindo que as informações do conjunto de teste não fossem utilizadas no ajuste do tratamento dos dados.
+
+### 3.3 Divisão dos Dados
+
+A base foi dividida em dois conjuntos:
+
+- **Treino:** 2.342 registros, aproximadamente 80% dos dados.
+- **Teste:** 586 registros, aproximadamente 20% dos dados.
+
+Foi utilizada amostragem estratificada (*stratified split*) para preservar aproximadamente a proporção das classes nos dois conjuntos.
+
+Após o tratamento, os conjuntos de treino e teste não apresentaram valores ausentes e estavam preparados para a etapa de modelagem.
