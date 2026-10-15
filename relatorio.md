@@ -104,3 +104,55 @@ A base foi dividida em dois conjuntos:
 Foi utilizada amostragem estratificada (*stratified split*) para preservar aproximadamente a proporção das classes nos dois conjuntos.
 
 Após o tratamento, os conjuntos de treino e teste não apresentaram valores ausentes e estavam preparados para a etapa de modelagem.
+
+## 4. Modelagem (Modeling)
+
+### 4.1 Modelo 1 — Árvore de Decisão (Decision Tree)
+
+O primeiro modelo implementado foi uma Árvore de Decisão, utilizando o algoritmo `DecisionTreeClassifier` da biblioteca Scikit-learn. Foi utilizado o parâmetro `class_weight='balanced'` para atribuir pesos às classes de acordo com suas frequências no conjunto de treino, considerando o desequilíbrio presente nos dados.
+
+O modelo foi treinado com 2.336 registros e avaliado com 592 registros de teste, mantendo países distintos entre os dois conjuntos.
+
+Os resultados obtidos foram:
+
+- **Acurácia:** 92,23%.
+- **Precisão da classe Developed:** 0,86.
+- **Revocação da classe Developed:** 0,77.
+- **F1-score da classe Developed:** 0,81.
+- **Precisão da classe Developing:** 0,94.
+- **Revocação da classe Developing:** 0,97.
+- **F1-score da classe Developing:** 0,95.
+
+A matriz de confusão apresentou 98 países desenvolvidos classificados corretamente, 30 classificados incorretamente como em desenvolvimento, 448 países em desenvolvimento classificados corretamente e 16 classificados incorretamente como desenvolvidos.
+
+Os resultados indicam que o modelo apresentou bom desempenho geral, especialmente na identificação de países em desenvolvimento. Entretanto, a revocação da classe `Developed` foi inferior à da classe `Developing`, demonstrando que ainda existem dificuldades na identificação da classe minoritária.
+
+### 4.2 Modelo 2 — Floresta Aleatória (Random Forest)
+
+O segundo modelo implementado foi uma Floresta Aleatória, utilizando o algoritmo `RandomForestClassifier` da biblioteca Scikit-learn. Foram utilizadas 200 árvores de decisão, com o parâmetro `class_weight='balanced'` para considerar o desequilíbrio entre as classes.
+
+O modelo foi treinado com 2.336 registros e avaliado com 592 registros de teste, mantendo a mesma divisão utilizada no primeiro experimento.
+
+Os resultados obtidos foram:
+
+- **Acurácia:** 88,85%.
+- **Precisão da classe Developed:** 0,83.
+- **Revocação da classe Developed:** 0,61.
+- **F1-score da classe Developed:** 0,70.
+- **Precisão da classe Developing:** 0,90.
+- **Revocação da classe Developing:** 0,97.
+- **F1-score da classe Developing:** 0,93.
+
+Em comparação com a Árvore de Decisão, a Floresta Aleatória apresentou desempenho inferior nas métricas avaliadas, especialmente na revocação e no F1-score da classe `Developed`. Portanto, apesar de combinar várias árvores, esse modelo não apresentou melhores resultados neste experimento.
+
+### 4.3 Importância dos Indicadores
+
+Para compreender quais variáveis tiveram maior influência nas decisões do modelo, foi analisada a importância dos indicadores calculada pela Árvore de Decisão.
+
+Os resultados mostraram que `Life expectancy` apresentou a maior importância, com aproximadamente 52,81%, seguido por `Alcohol`, com 22,03%. Em conjunto, esses dois indicadores representam aproximadamente 74,84% da importância total atribuída pelo modelo.
+
+Outros indicadores, como `thinness 1-19 years` (6,78%), `Total expenditure` (3,44%) e `Hepatitis B` (3,37%), apresentaram contribuições menores.
+
+Por outro lado, variáveis como `infant deaths` (0,17%) e `HIV/AIDS` (0,18%) apresentaram as menores importâncias no modelo.
+
+Esses resultados indicam que a Árvore de Decisão utilizou principalmente a expectativa de vida e o indicador relacionado ao consumo de álcool para realizar suas classificações. Entretanto, a importância das variáveis representa sua contribuição para as decisões do modelo, não demonstrando necessariamente uma relação causal com o status de desenvolvimento dos países.
